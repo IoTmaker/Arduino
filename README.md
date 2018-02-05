@@ -1,14 +1,16 @@
 # ArduinoAquariumMonitor
 
-Repo link: https://github.com/IoTmaker/ArduinoAquariumMonitor
+Repo link: [https://github.com/IoTmaker/ArduinoAquariumMonitor]
 
-See write up of the project here: https://www.hackster.io/thestevenbell/monitor-water-and-air-temperature-with-esp8266-and-mqtt-bb56da
+See write up of the project here: [https://www.hackster.io/thestevenbell/monitor-water-and-air-temperature-with-esp8266-and-mqtt-bb56da]
 
 #### See comments in .ino file for more detail.
 ### Prerequises:
+This project uses an imported configuration.h file to house sensitive information.
 
-Create <user home>/Arduino/libraries/configuration/Configuration.h
-  Add the following constants replacing the values with yours:
+Create the following file <user home>/Arduino/libraries/configuration/Configuration.h
+
+Add the following constants replacing the values with yours:
 ```
 /************************* WiFi Access Point *********************************/
 #define CONFIG_WLAN_SSID       "some ssid"
