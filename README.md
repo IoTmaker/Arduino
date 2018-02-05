@@ -2,7 +2,7 @@
 
 Repo link: https://github.com/IoTmaker/ArduinoAquariumMonitor
 
-See write up of the project here:
+See write up of the project here: https://www.hackster.io/thestevenbell/monitor-water-and-air-temperature-with-esp8266-and-mqtt-bb56da
 
 #### See comments in .ino file for more detail.
 ### Prerequises:
@@ -24,6 +24,7 @@ Create <user home>/Arduino/libraries/configuration/Configuration.h
 
 ## Pro-tips:
 **Debugging the ESP8266**
+
 I ran into issues when writing to the TFT display causing the ESP8266 to throw an error.
 The microcontrolller will actually print a stack trace to the console.
 At the time I had no idea what part of the code had generated the issue or even the nature of the error.
@@ -34,3 +35,11 @@ Additional info on debugging:
   - http://arduino-esp8266.readthedocs.io/en/latest/faq/a02-my-esp-crashes.html
 
   - http://arduino-esp8266.readthedocs.io/en/latest/Troubleshooting/debugging.html
+
+**Libraries Listing for ESP8266**
+
+List of libraries known to be compatible with the ESP8266.  This will save you some time as you will not have to do trial and error to determine if the libary works with the board.
+
+  - http://arduino-esp8266.readthedocs.io/en/latest/libraries.html
+
+
