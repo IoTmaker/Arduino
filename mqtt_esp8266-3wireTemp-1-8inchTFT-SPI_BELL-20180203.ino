@@ -7,26 +7,44 @@
  * 
  * 
  *  ****************************************************/
+
+/* ****************************************************
+ *  - Adafruit Huzzah ESP8266 board or Feather
+        https://www.adafruit.com/product/2471
+        https://www.adafruit.com/products/2821
+ *  - DS18B20 (waterproof) 1 wire temp sensor
+ *  - DHT11 temperature and humidity sensor 
+ *  - Adafruit 1.8 inch TFT display 
+ *  - 4.7 KOhm resistor
+ *  - Adafruit FTDI Serial TTL-232 USB Cable or equal to program Huzzah
+ *  
+ *  Project by Steven Bell. @cropcommand 
+ *  Additional resources credited in comments below.  
+ *  Project URL:
+ *  https://www.hackster.io/thestevenbell/monitor-water-and-air-temperature-with-esp8266-and-mqtt-bb56da 
+ *  Project Repo:
+ *  https://github.com/IoTmaker/ArduinoAquariumMonitor
+ *  ****************************************************/
+ 
  /***************************************************
-  Adafruit MQTT Library for Huzzah ESP8266 with 1 wire temp sensor (waterproof) and DHT11 sensoreExample
 
-// Depends on the following Arduino libraries:
-// - Adafruit Unified Sensor Library: https://github.com/adafruit/Adafruit_Sensor
-// - DHT Sensor Library: https://github.com/adafruit/DHT-sensor-library
-
-  Must use ESP8266 Arduino from:
-    https://github.com/esp8266/Arduino
-
-  Works great with Adafruit's Huzzah ESP board & Feather
-  ----> https://www.adafruit.com/product/2471
-  ----> https://www.adafruit.com/products/2821
-
-  How To Set Up Hardware
+  How To Set Up Hardware:
   https://learn.adafruit.com/home-automation-in-the-cloud-with-the-esp8266-and-adafruit-io/programming-the-modules
   https://learn.adafruit.com/remote-control-with-the-huzzah-plus-adafruit-io
   
-  How To Set Up Software
-  https://github.com/openhomeautomation/adafruit-io-esp8266/blob/master/esp8266_sensor_module/esp8266_sensor_module.ino
+  How To Set Up Software and library dependencies:
+  - Must use ESP8266 Arduino Library.  Follow the instructions in the repo to set 
+    up the Arduino IDE to be able to program the Huzzah:
+    https://github.com/esp8266/Arduino
+  - Basic example of DHT11 with MQTT to Adafruit.io:
+    https://github.com/openhomeautomation/adafruit-io-esp8266/blob/master/esp8266_sensor_module/esp8266_sensor_module.ino
+  - Adafruit MQTT Library : https://github.com/adafruit/Adafruit_MQTT_Library
+  - Adafruit Unified Sensor Library: https://github.com/adafruit/Adafruit_Sensor
+  - DHT Sensor Library: https://github.com/adafruit/DHT-sensor-library
+  - For the DS18B20 temp sensor:
+    http://milesburton.com/Dallas_Temperature_Control_Library
+
+  
   Adafruit invests time and resources providing this open source code,
   please support Adafruit and open-source hardware by purchasing
   products from Adafruit!
@@ -34,8 +52,8 @@
   Written by Tony DiCola for Adafruit Industries.
   MIT license, all text above must be included in any redistribution
  *  ****************************************************/
+  
 /* ****** OneWire DS18B20 Temperature Example**********
-
  http://www.pjrc.com/teensy/td_libs_OneWire.html
 
  The DallasTemperature library can do all this work for you!
@@ -44,12 +62,12 @@
  https://create.arduino.cc/projecthub/TheGadgetBoy/ds18b20-digital-temperature-sensor-and-arduino-9cc806
 
  *  ****************************************************/
+ 
 /* *****************DHT11****************************
- *  
  * http://www.hobbyist.co.nz/?q=documentations/wiring-up-dht11-temp-humidity-sensor-to-your-arduino
  * 
- * 
  *  ****************************************************/
+
 #include "ESP8266WiFi.h"
 #include "Adafruit_MQTT.h"
 #include "Adafruit_MQTT_Client.h"
